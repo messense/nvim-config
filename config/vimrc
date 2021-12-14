@@ -1,0 +1,17 @@
+" Custom mapping <leader> (see `:h mapleader` for more info)
+let mapleader = ','
+
+filetype plugin on
+filetype indent on
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+" Move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Plugin specification and lua stuff
+lua require('lua-init')

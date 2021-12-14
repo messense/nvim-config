@@ -12,11 +12,6 @@ vim.cmd [[
   augroup end
 ]]
 
-vim.cmd [[
-  filetype plugin on
-  filetype indent on
-]]
-
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
