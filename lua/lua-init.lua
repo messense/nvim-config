@@ -39,6 +39,8 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'Vimjas/vim-python-pep8-indent'
   use 'rcarriga/nvim-notify' -- Fancy notifcation
+  use 'liuchengxu/vista.vim' -- Viewer & Finder for LSP symbols and tags
+  use 'sbdchd/neoformat' -- Code formatting
 end)
 
 --Set highlight on search
@@ -221,7 +223,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
 local lsp_installer_servers = require'nvim-lsp-installer.servers'
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
 for _, lsp in ipairs(servers) do
   local server_available, requested_server = lsp_installer_servers.get_server(lsp)
   if server_available then
