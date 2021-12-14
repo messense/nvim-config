@@ -38,6 +38,7 @@ require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'Vimjas/vim-python-pep8-indent'
+  use 'rcarriga/nvim-notify' -- Fancy notifcation
 end)
 
 --Set highlight on search
@@ -97,6 +98,9 @@ vim.g.indent_blankline_char = '┊'
 vim.g.indent_blankline_filetype_exclude = { 'help', 'packer' }
 vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
 vim.g.indent_blankline_show_trailing_blankline_indent = false
+
+-- Set default notify function
+vim.notify = require("notify")
 
 -- Gitsigns
 require('gitsigns').setup {
