@@ -41,6 +41,7 @@ require('packer').startup(function()
   use 'rcarriga/nvim-notify' -- Fancy notifcation
   use 'liuchengxu/vista.vim' -- Viewer & Finder for LSP symbols and tags
   use 'sbdchd/neoformat' -- Code formatting
+  use 'rhysd/committia.vim' -- Pleasant editing on commit messages
 end)
 
 --Set highlight on search
