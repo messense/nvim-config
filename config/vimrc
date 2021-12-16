@@ -13,5 +13,7 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+let g:python3_host_prog = '~/.pyenv/versions/neovim/bin/python3'
+
 " Plugin specification and lua stuff
 lua require('lua-init')

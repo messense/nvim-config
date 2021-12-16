@@ -45,6 +45,14 @@ require('packer').startup(function()
   use 'liuchengxu/vista.vim' -- Viewer & Finder for LSP symbols and tags
   use 'sbdchd/neoformat' -- Code formatting
   use 'rhysd/committia.vim' -- Pleasant editing on commit messages
+
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
+  end
+ }
 end)
 
 --Set highlight on search
@@ -96,6 +104,14 @@ vim.cmd [[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+]]
+
+-- Remember last position
+vim.cmd [[
+  augroup LastPosition
+    autocmd!
+    autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   augroup end
 ]]
 
