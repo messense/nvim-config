@@ -92,6 +92,9 @@ require('packer').startup(function()
             require("trouble").setup {}
         end
     }
+
+    -- Highlight TODO and FIXME
+    use 'sakshamgupta05/vim-todo-highlight'
 end)
 
 -- Lightbulb
