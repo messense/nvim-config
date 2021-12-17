@@ -8,13 +8,21 @@ end
 vim.cmd [[
   augroup Packer
     autocmd!
-    autocmd BufWritePost init.lua PackerCompile
+    autocmd BufWritePost plugins.lua PackerCompile
   augroup end
 ]]
 
 local use = require('packer').use
 require('packer').startup(function()
     use 'wbthomason/packer.nvim' -- Package manager
+
+    -- Lazy loading:
+    -- Load on specific commands
+    use {
+        'tpope/vim-dispatch',
+        opt = true,
+        cmd = {'Dispatch', 'Make', 'Focus', 'Start'}
+    }
 
     use 'tpope/vim-fugitive' -- Git commands in nvim
 
