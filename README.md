@@ -11,3 +11,7 @@ git clone git@github.com:messense/nvim-config.git ~/.config/nvim
 ```
 
 Open neovim and run `PackerInstall` command.
+
+## Usage
+
+Leader key is the space key.
