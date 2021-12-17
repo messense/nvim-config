@@ -34,6 +34,13 @@ require('packer').startup(function()
 
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'williamboman/nvim-lsp-installer' -- Lsp server installer
+  use {
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
+  }
+  use {
+    'kosayoda/nvim-lightbulb',
+  }
   use 'github/copilot.vim'
 
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
@@ -113,6 +120,11 @@ vim.cmd [[
     autocmd!
     autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   augroup end
+]]
+
+-- Lightbulb
+vim.cmd [[
+  autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 ]]
 
 --Map blankline
