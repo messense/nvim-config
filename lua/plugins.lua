@@ -52,7 +52,27 @@ require('packer').startup(function()
     use 'saadparwaiz1/cmp_luasnip'
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use 'Vimjas/vim-python-pep8-indent'
-    use 'rcarriga/nvim-notify' -- Fancy notifcation
+
+    -- Fancy notifcation
+    use {
+        "rcarriga/nvim-notify",
+        config = function()
+            vim.notify = require "notify"
+            require("notify").setup {
+                stages = "slide",
+                timeout = 2500,
+                minimum_width = 50,
+                icons = {
+                    ERROR = "",
+                    WARN = "",
+                    INFO = "",
+                    DEBUG = "",
+                    TRACE = "✎"
+                }
+            }
+        end
+    }
+
     use 'liuchengxu/vista.vim' -- Viewer & Finder for LSP symbols and tags
     use 'sbdchd/neoformat' -- Code formatting
     use 'rhysd/committia.vim' -- Pleasant editing on commit messages
@@ -70,9 +90,6 @@ end)
 vim.cmd [[
   autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 ]]
-
--- Set default notify function
-vim.notify = require("notify")
 
 -- Gitsigns
 require('gitsigns').setup {
@@ -226,9 +243,6 @@ end
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
 
 -- luasnip setup
 local luasnip = require 'luasnip'
