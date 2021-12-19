@@ -241,9 +241,10 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Enable the following language servers
 local lsp_installer_servers = require "nvim-lsp-installer.servers"
-local servers = { "clangd", "rust_analyzer", "pyright", "tsserver", "sumneko_lua", "diagnosticls" }
+
+local servers = lsp_installer_servers.get_installed_servers()
 for _, lsp in ipairs(servers) do
-    local server_available, requested_server = lsp_installer_servers.get_server(lsp)
+    local server_available, requested_server = lsp_installer_servers.get_server(lsp.name)
     if server_available then
         requested_server:on_ready(function()
             local opts = {
