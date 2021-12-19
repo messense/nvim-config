@@ -5,7 +5,7 @@ vim.o.hlsearch = false
 vim.wo.number = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -19,7 +19,7 @@ vim.o.smartcase = true
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 -- Set colorscheme (order is important here)
 vim.o.termguicolors = true
@@ -28,22 +28,22 @@ vim.cmd [[colorscheme onedark]]
 
 -- Set statusbar
 vim.g.lightline = {
-    colorscheme = 'onedark',
+    colorscheme = "onedark",
     active = {
-        left = {{'mode', 'paste'}, {'gitbranch', 'readonly', 'filename', 'modified'}}
+        left = { { "mode", "paste" }, { "gitbranch", "readonly", "filename", "modified" } },
     },
     component_function = {
-        gitbranch = 'fugitive#head'
-    }
+        gitbranch = "fugitive#head",
+    },
 }
 
 -- Remap space as leader key
-vim.api.nvim_set_keymap('', '<Space>', '<Nop>', {
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", {
     noremap = true,
-    silent = true
+    silent = true,
 })
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Highlight on yank
 vim.cmd [[
@@ -62,10 +62,10 @@ vim.cmd [[
 ]]
 
 -- Map blankline
-vim.g.indent_blankline_char = '┊'
-vim.g.indent_blankline_filetype_exclude = {'help', 'packer'}
-vim.g.indent_blankline_buftype_exclude = {'terminal', 'nofile'}
+vim.g.indent_blankline_char = "┊"
+vim.g.indent_blankline_filetype_exclude = { "help", "packer" }
+vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
 vim.g.indent_blankline_show_trailing_blankline_indent = false
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
