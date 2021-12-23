@@ -49,6 +49,10 @@ require("packer").startup(function()
     use "neovim/nvim-lspconfig" -- Collection of configurations for built-in LSP client
     use "williamboman/nvim-lsp-installer" -- Lsp server installer
     use {
+	"jose-elias-alvarez/null-ls.nvim",
+	after = "nvim-lspconfig",
+    }
+    use {
         "weilbith/nvim-code-action-menu",
         cmd = "CodeActionMenu",
     }
