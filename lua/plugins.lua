@@ -25,8 +25,8 @@ require("packer").startup(function()
     }
 
     use "tpope/vim-fugitive" -- Git commands in nvim
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-    use "ludovicchabant/vim-gutentags" -- Automatic tags management
     -- UI to select things (files, grep results, open buffers...)
     use {
         "nvim-telescope/telescope.nvim",
@@ -64,6 +64,9 @@ require("packer").startup(function()
     use "saadparwaiz1/cmp_luasnip"
     use "L3MON4D3/LuaSnip" -- Snippets plugin
     use "Vimjas/vim-python-pep8-indent"
+
+    -- Dev setup for init.lua and plugin development
+    use "folke/lua-dev.nvim"
 
     -- Fancy notifcation
     use {
